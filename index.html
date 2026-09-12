@@ -97,19 +97,41 @@
         <p>&copy; 2026 Roy_Manalu. Dibuat dengan ❤️ untuk Labersa Toba Fantasi Pages.</p>
     </footer>
     <script>
-        function handleBooking(event) {
-            event.preventDefault(); // Mencegah reload halaman
-            
-            // Mengambil data (bisa dikembangkan untuk dikirim ke email/database)
-            const name = document.getElementById('name').value;
-            const service = document.getElementById('service').value;
+        <script>
+    function handleBooking(event) {
+        event.preventDefault(); // Mencegah reload halaman
 
-            // Sembunyikan form dan tampilkan pesan sukses
-            document.getElementById('bookingForm').classList.add('hidden');
-            
-            const successBox = document.getElementById('successMessage');
-            successBox.classList.remove('hidden');
-        }
+        // 1. Ambil data dari form
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const date = document.getElementById('date').value;
+        const serviceSelect = document.getElementById('service');
+        const service = serviceSelect.options[serviceSelect.selectedIndex].text;
+        const notes = document.getElementById('notes').value || "-";
+
+        // 2. Pengaturan Nomor WhatsApp Anda (Ganti dengan nomor Anda, awali dengan kode negara 62)
+        const phoneNumber = "6281277675507"; 
+
+        // 3. Format pesan teks
+        const textMessage = `Halo, saya ingin melakukan Booking Online.%0A%0A` +
+                            `*Nama:* ${encodeURIComponent(name)}%0A` +
+                            `*Email:* ${encodeURIComponent(email)}%0A` +
+                            `*Tanggal:* ${encodeURIComponent(date)}%0A` +
+                            `*Layanan:* ${encodeURIComponent(service)}%0A` +
+                            `*Catatan:* ${encodeURIComponent(notes)}`;
+
+        // 4. Redirect ke WhatsApp URL
+        const whatsappURL = `https://whatsapp.com{phoneNumber}&text=${textMessage}`;
+        
+        // Buka di tab baru
+        window.open(whatsappURL, '_blank');
+
+        // Tampilkan pesan sukses di halaman web
+        document.getElementById('bookingForm').classList.add('hidden');
+        document.getElementById('successMessage').classList.remove('hidden');
+    }
+</script>
+
     </script>
 
 </body>
