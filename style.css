@@ -118,11 +118,7 @@ header nav ul li a:hover {
     color: #24292e;
 }
 
-/* Footer */
-footer {
-    background: #24292e;
-    
-    /* Booking Section */
+ /* Booking Section */
 .booking-section {
     padding: 60px 10%;
     background-color: #fff;
@@ -224,3 +220,9 @@ footer {
     padding: 20px;
     margin-top: 40px;
 }
+
+/* Footer */
+footer {
+    background: #24292e;
+    
+   
