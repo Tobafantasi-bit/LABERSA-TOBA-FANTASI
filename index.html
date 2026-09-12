@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toba.Fantasi </title>
+    <title>Toba_Fantasi </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -112,7 +112,7 @@
         // 2. Masukkan nomor WhatsApp Anda (Gunakan kode negara 62 di depan)
         const phoneNumber = "6282177675507"; 
 
-        // 3. Susun teks pesan teks (Menggunakan encodeURIComponent untuk keamanan karakter)
+        // 3. Susun teks pesan teks
         const textMessage = `Halo, saya ingin melakukan Booking Online.%0A%0A` +
                             `*Nama:* ${encodeURIComponent(name)}%0A` +
                             `*Email:* ${encodeURIComponent(email)}%0A` +
@@ -120,8 +120,8 @@
                             `*Layanan:* ${encodeURIComponent(service)}%0A` +
                             `*Catatan:* ${encodeURIComponent(notes)}`;
 
-        // 4. ALAMAT YANG SUDAH DIPERBAIKI 
-        const whatsappURL = `https://whatsapp.com{phoneNumber}&text=${textMessage}`;
+        // 4. ALAMAT LINK YANG SUDAH DIPERBAIKI (Menggunakan wa.me)
+        const whatsappURL = `https://wa.me{phoneNumber}?text=${textMessage}`;
         
         // Menampilkan kotak sukses di web terlebih dahulu
         document.getElementById('bookingForm').style.display = 'none';
@@ -133,6 +133,7 @@
         }, 1000);
     }
 </script>
+
 
 
 
