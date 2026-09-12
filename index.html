@@ -120,8 +120,8 @@
                             `*Layanan:* ${encodeURIComponent(service)}%0A` +
                             `*Catatan:* ${encodeURIComponent(notes)}`;
 
-        // 4. ALAMAT LINK YANG SUDAH DIPERBAIKI (Menggunakan wa.me)
-        const whatsappURL = `https://wa.me{phoneNumber}?text=${textMessage}`;
+        // 4. ALAMAT LINK YANG SUDAH DIPERBAIKI (Menggunakan wa.me/)
+        const whatsappURL = `https://wa.me/${phoneNumber}?text=${textMessage}`;
         
         // Menampilkan kotak sukses di web terlebih dahulu
         document.getElementById('bookingForm').style.display = 'none';
