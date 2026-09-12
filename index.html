@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toba.Fantasi </title>
+    <title>Toba_Fantasi </title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -98,12 +98,11 @@
     </footer>
     
 <script>
-
     <script>
     function handleBooking(event) {
-        event.preventDefault(); // Mencegah reload halaman
+        event.preventDefault(); // Mencegah halaman reload
 
-        // 1. Ambil data dari form
+        // 1. Ambil elemen form
         const name = document.getElementById('name').value;
         const email = document.getElementById('email').value;
         const date = document.getElementById('date').value;
@@ -111,10 +110,10 @@
         const service = serviceSelect.options[serviceSelect.selectedIndex].text;
         const notes = document.getElementById('notes').value || "-";
 
-        // 2. Pengaturan Nomor WhatsApp Anda (Ganti dengan nomor Anda, awali dengan kode negara 62)
+        // 2. Masukkan nomor WhatsApp Anda (Gunakan kode negara 62 di depan)
         const phoneNumber = "6282177675507"; 
 
-        // 3. Format pesan teks
+        // 3. Susun teks pesan teks
         const textMessage = `Halo, saya ingin melakukan Booking Online.%0A%0A` +
                             `*Nama:* ${encodeURIComponent(name)}%0A` +
                             `*Email:* ${encodeURIComponent(email)}%0A` +
@@ -122,17 +121,20 @@
                             `*Layanan:* ${encodeURIComponent(service)}%0A` +
                             `*Catatan:* ${encodeURIComponent(notes)}`;
 
-        // 4. Redirect ke WhatsApp URL
+        // 4. Alihkan halaman langsung ke WhatsApp API
         const whatsappURL = `https://whatsapp.com{phoneNumber}&text=${textMessage}`;
         
-        // Buka di tab baru
-        window.open(whatsappURL, '_blank');
+        // Menampilkan kotak sukses di web terlebih dahulu
+        document.getElementById('bookingForm').style.display = 'none';
+        document.getElementById('successMessage').style.display = 'block';
 
-        // Tampilkan pesan sukses di halaman web
-        document.getElementById('bookingForm').classList.add('hidden');
-        document.getElementById('successMessage').classList.remove('hidden');
+        // Alihkan ke WhatsApp setelah jeda 1 detik agar pengguna sempat melihat info sukses
+        setTimeout(() => {
+            window.location.href = whatsappURL;
+        }, 1000);
     }
 </script>
+
 
 </body>
 </html>
